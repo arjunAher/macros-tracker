@@ -3,10 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="theme-color" content="#f7f7f5">
-<title>Macros</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -16,20 +12,18 @@
   --blue:#457b9d;--yellow:#d4a017;
   --radius:14px;--radius-sm:10px;
   --shadow:0 1px 3px rgba(0,0,0,0.05),0 4px 12px rgba(0,0,0,0.04);
-  --safe-top:env(safe-area-inset-top,0px);
-  --safe-bottom:env(safe-area-inset-bottom,0px);
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
 .app{max-width:420px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;}
-.header{background:rgba(247,247,245,0.95);backdrop-filter:blur(16px);padding:calc(var(--safe-top) + 14px) 18px 12px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;flex-shrink:0;}
+.header{background:rgba(247,247,245,0.95);backdrop-filter:blur(16px);padding:14px 18px 12px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;flex-shrink:0;}
 .header-row{display:flex;align-items:center;justify-content:space-between;}
 .app-name{font-size:20px;font-weight:600;letter-spacing:-0.4px;}
 .date-nav{display:flex;align-items:center;gap:2px;}
 .date-nav button{background:none;border:none;cursor:pointer;width:30px;height:30px;border-radius:50%;font-size:16px;color:var(--text2);display:flex;align-items:center;justify-content:center;transition:background 0.12s;}
 .date-nav button:active{background:var(--border);}
 .date-label{font-size:13px;font-weight:500;color:var(--text2);background:var(--surface2);border-radius:20px;padding:5px 12px;cursor:pointer;user-select:none;min-width:80px;text-align:center;}
-.main{flex:1;padding:14px 14px calc(100px + var(--safe-bottom));display:flex;flex-direction:column;gap:14px;overflow-y:auto;}
+.main{flex:1;padding:14px 14px 110px;display:flex;flex-direction:column;gap:14px;overflow-y:auto;}
 .summary{background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);padding:18px;box-shadow:var(--shadow);}
 .summary-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px;}
 .cal-big{font-size:38px;font-weight:300;letter-spacing:-1.5px;line-height:1;}
@@ -72,7 +66,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .g-wrap label{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;display:block;margin-bottom:4px;}
 .g-wrap input{width:100%;background:var(--surface2);border:1.5px solid var(--border);border-radius:8px;padding:9px 11px;font-size:15px;font-weight:500;color:var(--text);font-family:'DM Sans',sans-serif;outline:none;}
 .g-wrap input:focus{border-color:var(--accent);background:white;}
-.fab{position:fixed;bottom:calc(20px + var(--safe-bottom));left:50%;transform:translateX(-50%);background:var(--accent);color:white;border:none;border-radius:99px;padding:14px 28px;font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 4px 18px rgba(45,106,79,0.32);transition:transform 0.12s;z-index:50;white-space:nowrap;}
+.fab{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--accent);color:white;border:none;border-radius:99px;padding:14px 28px;font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 4px 18px rgba(45,106,79,0.32);transition:transform 0.12s;z-index:50;white-space:nowrap;}
 .fab:active{transform:translateX(-50%) scale(0.96);}
 .overlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.38);backdrop-filter:blur(3px);display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.2s;}
 .overlay.open{opacity:1;pointer-events:all;}
@@ -95,17 +89,30 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .spinner{width:15px;height:15px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 0.6s linear infinite;flex-shrink:0;}
 @keyframes spin{to{transform:rotate(360deg);}}
 .results{overflow-y:auto;flex:1;padding:0 14px;}
-.r-item{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:10px;cursor:pointer;border-bottom:1px solid var(--border);transition:background 0.1s;}
+
+/* Result item — custom ones get a delete button */
+.r-item{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:10px;border-bottom:1px solid var(--border);transition:background 0.1s;}
 .r-item:last-child{border-bottom:none;}
-.r-item:active{background:var(--surface2);}
 .r-icon{font-size:20px;flex-shrink:0;}
-.r-info{flex:1;min-width:0;}
+.r-info{flex:1;min-width:0;cursor:pointer;}
 .r-name{font-size:13px;font-weight:500;}
 .r-brand{font-size:11px;color:var(--text3);margin-top:1px;}
-.r-p{font-size:12px;font-weight:600;color:var(--accent);font-family:'DM Mono',monospace;flex-shrink:0;}
+.r-p{font-size:12px;font-weight:600;color:var(--accent);font-family:'DM Mono',monospace;flex-shrink:0;cursor:pointer;}
 .local-tag{background:var(--accent-light);color:var(--accent);font-size:9px;font-weight:700;padding:2px 6px;border-radius:99px;text-transform:uppercase;}
 .custom-tag{background:#eef2ff;color:#4f46e5;font-size:9px;font-weight:700;padding:2px 6px;border-radius:99px;text-transform:uppercase;}
 .no-res{text-align:center;padding:28px;color:var(--text3);font-size:13px;}
+.r-del{background:none;border:none;cursor:pointer;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#c0a0a0;font-size:13px;flex-shrink:0;transition:background 0.12s,color 0.12s;}
+.r-del:active{background:#fee2e2;color:#ef4444;}
+
+/* Manage custom foods section inside custom tab */
+.custom-lib{padding:0 14px 14px;flex-shrink:0;}
+.custom-lib-title{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;}
+.lib-item{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--surface2);border-radius:10px;margin-bottom:6px;}
+.lib-name{flex:1;font-size:13px;font-weight:500;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lib-del{background:none;border:none;cursor:pointer;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#c0a0a0;font-size:13px;flex-shrink:0;transition:background 0.12s,color 0.12s;}
+.lib-del:active{background:#fee2e2;color:#ef4444;}
+.lib-empty{font-size:12px;color:var(--text3);padding:8px 0;}
+
 .add-panel{border-top:1px solid var(--border);padding:0 14px;flex-shrink:0;background:var(--surface);animation:fadeUp 0.18s ease;}
 .sel-name{font-size:14px;font-weight:600;padding:13px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .qty-row{display:flex;gap:8px;margin-bottom:10px;}
@@ -116,16 +123,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .add-btn{width:100%;background:var(--accent);color:white;border:none;border-radius:10px;padding:13px;font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;margin-bottom:8px;transition:opacity 0.12s;}
 .add-btn:active{opacity:0.85;}
 .back-link{font-size:12px;color:var(--text3);cursor:pointer;padding:0 0 12px;display:inline-block;}
-.custom-form{padding:10px 14px 14px;overflow-y:auto;flex:1;}
+.custom-form{padding:10px 14px 0;overflow-y:auto;flex:1;}
 .cf-row{margin-bottom:12px;}
 .cf-row label{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;display:block;margin-bottom:5px;}
 .cf-row input,.cf-row select{width:100%;background:var(--surface2);border:1.5px solid var(--border);border-radius:10px;padding:10px 13px;font-size:15px;font-weight:500;color:var(--text);font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.15s;}
 .cf-row input:focus,.cf-row select:focus{border-color:var(--accent);background:white;}
 .cf-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;}
 .cf-note{font-size:11px;color:var(--text3);margin-bottom:14px;line-height:1.5;}
-.save-custom-btn{width:100%;background:var(--accent);color:white;border:none;border-radius:10px;padding:13px;font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:opacity 0.12s;}
+.save-custom-btn{width:100%;background:var(--accent);color:white;border:none;border-radius:10px;padding:13px;font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:opacity 0.12s;margin-bottom:14px;}
 .save-custom-btn:active{opacity:0.85;}
-.toast{position:fixed;bottom:calc(84px + var(--safe-bottom));left:50%;transform:translateX(-50%) translateY(10px);background:var(--text);color:white;padding:9px 16px;border-radius:99px;font-size:13px;font-weight:500;opacity:0;pointer-events:none;transition:all 0.18s;z-index:300;white-space:nowrap;}
+.divider{height:1px;background:var(--border);margin:4px 14px 14px;}
+.toast{position:fixed;bottom:84px;left:50%;transform:translateX(-50%) translateY(10px);background:var(--text);color:white;padding:9px 16px;border-radius:99px;font-size:13px;font-weight:500;opacity:0;pointer-events:none;transition:all 0.18s;z-index:300;white-space:nowrap;}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 </style>
 </head>
@@ -177,11 +185,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     </div>
   </div>
 </div>
+
 <button class="fab" onclick="openModal()">
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
   Add Food
 </button>
 <div class="toast" id="toast"></div>
+
 <div class="overlay" id="overlay" onclick="overlayClick(event)">
   <div class="sheet">
     <div class="handle"></div>
@@ -190,6 +200,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
       <button class="tab active" id="tabSearch" onclick="switchTab('search')">Search Foods</button>
       <button class="tab" id="tabCustom" onclick="switchTab('custom')">+ Custom Food</button>
     </div>
+
+    <!-- SEARCH TAB -->
     <div id="searchTab" style="display:flex;flex-direction:column;flex:1;overflow:hidden;">
       <div class="search-box">
         <div class="s-row">
@@ -210,9 +222,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
         <div class="back-link" onclick="backToSearch()">← Back to results</div>
       </div>
     </div>
+
+    <!-- CUSTOM TAB -->
     <div id="customTab" style="display:none;flex-direction:column;flex:1;overflow:hidden;">
       <div class="custom-form">
-        <div class="cf-note">Add a food not in the database. Saved permanently to your library and searchable with a custom tag.</div>
+        <div class="cf-note">Add a food not in the database. Saved permanently to your library.</div>
         <div class="cf-row"><label>Food Name *</label><input type="text" id="cfName" placeholder="e.g. My Protein Bar"></div>
         <div class="cf-row"><label>Unit / Serving *</label>
           <select id="cfUnitType" onchange="toggleCustomUnit()">
@@ -235,9 +249,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
         <div class="cf-row"><label>Emoji (optional)</label><input type="text" id="cfEmoji" placeholder="🥗" maxlength="2" style="width:60px"></div>
         <button class="save-custom-btn" onclick="saveCustomFood()">Save & Add to Library</button>
       </div>
+      <!-- Divider + saved library list -->
+      <div class="divider"></div>
+      <div class="custom-lib">
+        <div class="custom-lib-title">Your Custom Library</div>
+        <div id="libList"></div>
+      </div>
     </div>
+
   </div>
 </div>
+
 <script>
 const USDA_KEY='RcUT9GFSlNR7c62pcfBiekNqs6HUb9FwYOQiBvhm';
 const LOCAL=[
@@ -267,6 +289,7 @@ const LOCAL=[
   {id:'l24',name:'Chana Dal (cooked)',emoji:'🍲',units:[{label:'g',g:1},{label:'100g',g:100},{label:'bowl 200g',g:200}],p100:{pro:8.5,carb:27,fat:2.5,cal:164}},
   {id:'l25',name:'Moong Dal (cooked)',emoji:'🍲',units:[{label:'g',g:1},{label:'100g',g:100},{label:'bowl 200g',g:200}],p100:{pro:7,carb:19,fat:0.4,cal:105}},
 ];
+
 let curDate=todayStr(),goals={cal:2000,pro:150,carb:250,fat:65},selFood=null,srTimer=null,cache={},_results=[];
 function todayStr(){return new Date().toISOString().split('T')[0];}
 function getLog(d){try{return JSON.parse(localStorage.getItem('log_'+d)||'[]');}catch(e){return[];}}
@@ -283,21 +306,101 @@ function renderAll(){document.getElementById('dateLabel').textContent=fmtDate(cu
 function renderSummary(){const e=getLog(curDate);let tc=0,tp=0,tca=0,tf=0;e.forEach(x=>{tc+=x.cal;tp+=x.pro;tca+=x.carb;tf+=x.fat;});document.getElementById('calTotal').innerHTML=Math.round(tc)+'<sub>kcal</sub>';document.getElementById('calGoalDisp').textContent=goals.cal;const pct=Math.min(1,tc/goals.cal);document.getElementById('ringArc').style.strokeDashoffset=169.6*(1-pct);document.getElementById('ringPct').innerHTML=Math.round(pct*100)+'%<small>done</small>';document.getElementById('pVal').innerHTML=Math.round(tp)+'<span>g</span>';document.getElementById('cVal').innerHTML=Math.round(tca)+'<span>g</span>';document.getElementById('fVal').innerHTML=Math.round(tf)+'<span>g</span>';document.getElementById('bP').style.width=Math.min(100,tp/goals.pro*100)+'%';document.getElementById('bC').style.width=Math.min(100,tca/goals.carb*100)+'%';document.getElementById('bF').style.width=Math.min(100,tf/goals.fat*100)+'%';}
 function renderLog(){const e=getLog(curDate);document.getElementById('itemCount').textContent=e.length+(e.length===1?' item':' items');const el=document.getElementById('logList');if(!e.length){el.innerHTML='<div class="empty"><div class="empty-icon">🥗</div><div class="empty-t">Nothing logged yet</div><div class="empty-s">Tap Add Food to start</div></div>';return;}el.innerHTML=e.map((x,i)=>`<div class="log-item"><div class="log-icon">${x.emoji||emoji(x.name)}</div><div class="log-info"><div class="log-name">${x.name}</div><div class="log-sub">${x.qty} · ${x.time}</div></div><div class="log-nums"><div class="log-p">${Math.round(x.pro)}<span>g P</span></div><div class="log-c">${Math.round(x.cal)} kcal</div></div><button class="del-btn" onclick="del(${i})">✕</button></div>`).join('');}
 function del(i){const e=getLog(curDate);e.splice(i,1);saveLog(curDate,e);renderAll();toast('Removed');}
+
 function openModal(){document.getElementById('overlay').classList.add('open');resetToSearch();setTimeout(()=>document.getElementById('searchIn').focus(),300);}
 function closeModal(){document.getElementById('overlay').classList.remove('open');}
 function overlayClick(e){if(e.target===document.getElementById('overlay'))closeModal();}
 function resetToSearch(){selFood=null;_results=[];document.getElementById('addPanel').style.display='none';document.getElementById('results').innerHTML='';document.getElementById('results').style.display='block';document.getElementById('searchIn').value='';document.getElementById('spin').style.display='none';switchTab('search');}
-function switchTab(tab){const s=tab==='search';document.getElementById('tabSearch').classList.toggle('active',s);document.getElementById('tabCustom').classList.toggle('active',!s);document.getElementById('searchTab').style.display=s?'flex':'none';document.getElementById('customTab').style.display=s?'none':'flex';if(s)setTimeout(()=>document.getElementById('searchIn').focus(),100);}
+function switchTab(tab){
+  const s=tab==='search';
+  document.getElementById('tabSearch').classList.toggle('active',s);
+  document.getElementById('tabCustom').classList.toggle('active',!s);
+  document.getElementById('searchTab').style.display=s?'flex':'none';
+  document.getElementById('customTab').style.display=s?'none':'flex';
+  if(!s) renderLibList();
+  if(s) setTimeout(()=>document.getElementById('searchIn').focus(),100);
+}
+
 document.getElementById('searchIn').addEventListener('input',function(){clearTimeout(srTimer);const q=this.value.trim();if(q.length<2){document.getElementById('results').innerHTML='';return;}srTimer=setTimeout(()=>doSearch(q),280);});
+
 function localSearch(q){const custom=getCustomFoods().map(f=>({...f,isCustom:true}));return[...custom,...LOCAL].filter(f=>f.name.toLowerCase().includes(q.toLowerCase())).slice(0,6);}
 async function usdaSearch(q){if(cache[q])return cache[q];const r=await fetch(`https://api.nal.usda.gov/fdc/v1/foods/search?query=${encodeURIComponent(q)}&pageSize=8&dataType=Foundation,SR%20Legacy&api_key=${USDA_KEY}`);const d=await r.json();const res=(d.foods||[]).map(f=>{const get=n=>{const x=(f.foodNutrients||[]).find(n2=>n2.nutrientName&&n2.nutrientName.toLowerCase().includes(n));return x?x.value:0;};return{id:'u'+f.fdcId,name:f.description,brand:f.dataType,emoji:emoji(f.description),units:[{label:'g',g:1},{label:'100g',g:100}],p100:{pro:get('protein'),carb:get('carbohydrate'),fat:get('total lipid'),cal:get('energy')||get('Energy')}};});cache[q]=res;return res;}
-async function doSearch(q){const sp=document.getElementById('spin'),rl=document.getElementById('results');sp.style.display='block';const local=localSearch(q);let all=local.map(f=>({...f}));try{const usda=await usdaSearch(q);const names=new Set(local.map(f=>f.name.toLowerCase()));usda.forEach(f=>{if(!names.has(f.name.toLowerCase()))all.push(f);});}catch(e){}sp.style.display='none';_results=all.slice(0,10);if(!_results.length){rl.innerHTML=`<div class="no-res">No results for "${q}". Try + Custom Food!</div>`;return;}rl.innerHTML=_results.map((f,i)=>`<div class="r-item" onclick="selectFood(${i})"><div class="r-icon">${f.emoji||'🥗'}</div><div class="r-info"><div class="r-name">${f.name}</div><div class="r-brand">${f.isCustom?'<span class="custom-tag">✦ custom</span>':f.isLocal?'<span class="local-tag">★ local</span>':(f.brand||'USDA')}</div></div><div class="r-p">${Math.round(f.p100.pro)}g<small style="font-size:9px;color:var(--text3);font-family:'DM Sans',sans-serif;font-weight:400">/100g P</small></div></div>`).join('');}
+
+async function doSearch(q){
+  const sp=document.getElementById('spin'),rl=document.getElementById('results');
+  sp.style.display='block';
+  const local=localSearch(q);
+  let all=local.map(f=>({...f}));
+  try{const usda=await usdaSearch(q);const names=new Set(local.map(f=>f.name.toLowerCase()));usda.forEach(f=>{if(!names.has(f.name.toLowerCase()))all.push(f);});}catch(e){}
+  sp.style.display='none';
+  _results=all.slice(0,10);
+  if(!_results.length){rl.innerHTML=`<div class="no-res">No results for "${q}". Try + Custom Food!</div>`;return;}
+  rl.innerHTML=_results.map((f,i)=>`
+    <div class="r-item">
+      <div class="r-icon" onclick="selectFood(${i})">${f.emoji||'🥗'}</div>
+      <div class="r-info" onclick="selectFood(${i})">
+        <div class="r-name">${f.name}</div>
+        <div class="r-brand">${f.isCustom?'<span class="custom-tag">✦ custom</span>':f.isLocal?'<span class="local-tag">★ local</span>':(f.brand||'USDA')}</div>
+      </div>
+      <div class="r-p" onclick="selectFood(${i})">${Math.round(f.p100.pro)}g<small style="font-size:9px;color:var(--text3);font-family:'DM Sans',sans-serif;font-weight:400">/100g P</small></div>
+      ${f.isCustom?`<button class="r-del" onclick="deleteCustomFromSearch('${f.id}',event)" title="Delete from library">🗑</button>`:''}
+    </div>`).join('');
+}
+
+function deleteCustomFromSearch(id, e){
+  e.stopPropagation();
+  if(!confirm('Remove this food from your custom library?')) return;
+  const customs=getCustomFoods().filter(f=>f.id!==id);
+  saveCustomFoods(customs);
+  // re-run current search
+  const q=document.getElementById('searchIn').value.trim();
+  if(q.length>=2) doSearch(q); else document.getElementById('results').innerHTML='';
+  toast('Deleted from library');
+}
+
 function selectFood(i){selFood=_results[i];document.getElementById('selName').textContent=selFood.name;document.getElementById('unitSel').innerHTML=selFood.units.map((u,j)=>`<option value="${j}">${u.label}</option>`).join('');document.getElementById('qtyIn').value=1;document.getElementById('addPanel').style.display='block';document.getElementById('results').style.display='none';updatePrev();}
 function backToSearch(){document.getElementById('addPanel').style.display='none';document.getElementById('results').style.display='block';selFood=null;}
 function updatePrev(){if(!selFood)return;const ui=+document.getElementById('unitSel').value,qty=+document.getElementById('qtyIn').value||0,grams=qty*selFood.units[ui].g,f=grams/100,p=selFood.p100;document.getElementById('prev').innerHTML=`<span><b>${Math.round(p.cal*f)}</b> kcal</span><span><b>${(p.pro*f).toFixed(1)}g</b> protein</span><span><b>${(p.carb*f).toFixed(1)}g</b> carbs</span><span><b>${(p.fat*f).toFixed(1)}g</b> fat</span>`;}
 function confirmAdd(){if(!selFood)return;const ui=+document.getElementById('unitSel').value,qty=+document.getElementById('qtyIn').value||1,unit=selFood.units[ui],grams=qty*unit.g,f=grams/100,p=selFood.p100,now=new Date(),time=now.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}),entry={name:selFood.name,emoji:selFood.emoji||emoji(selFood.name),qty:`${qty} ${unit.label}`,time,pro:p.pro*f,carb:p.carb*f,fat:p.fat*f,cal:p.cal*f};const log=getLog(curDate);log.push(entry);saveLog(curDate,log);renderAll();toast('Added '+selFood.name);resetToSearch();setTimeout(()=>document.getElementById('searchIn').focus(),100);}
+
 function toggleCustomUnit(){document.getElementById('cfCustomLabelRow').style.display=document.getElementById('cfUnitType').value==='custom'?'block':'none';}
-function saveCustomFood(){const name=document.getElementById('cfName').value.trim();if(!name){toast('Please enter a food name');return;}const unitType=document.getElementById('cfUnitType').value,unitLabel=unitType==='custom'?document.getElementById('cfCustomLabel').value.trim()||'serving':unitType,grams=+document.getElementById('cfGrams').value;if(!grams||grams<=0){toast('Please enter grams per serving');return;}const cal=+document.getElementById('cfCal').value||0,pro=+document.getElementById('cfPro').value||0,carb=+document.getElementById('cfCarb').value||0,fat=+document.getElementById('cfFat').value||0,em=document.getElementById('cfEmoji').value.trim()||emoji(name);const food={id:'c'+Date.now(),name,emoji:em,units:[{label:unitLabel,g:grams},...(grams!==100?[{label:'100g',g:100}]:[])],p100:{pro,carb,fat,cal},isCustom:true};const customs=getCustomFoods();customs.push(food);saveCustomFoods(customs);toast('Saved "'+name+'" to library!');['cfName','cfGrams','cfCal','cfPro','cfCarb','cfFat','cfEmoji'].forEach(id=>document.getElementById(id).value='');document.getElementById('cfUnitType').value='g';document.getElementById('cfCustomLabelRow').style.display='none';switchTab('search');document.getElementById('searchIn').value=name;doSearch(name);}
+
+function saveCustomFood(){
+  const name=document.getElementById('cfName').value.trim();
+  if(!name){toast('Please enter a food name');return;}
+  const unitType=document.getElementById('cfUnitType').value,unitLabel=unitType==='custom'?document.getElementById('cfCustomLabel').value.trim()||'serving':unitType,grams=+document.getElementById('cfGrams').value;
+  if(!grams||grams<=0){toast('Please enter grams per serving');return;}
+  const cal=+document.getElementById('cfCal').value||0,pro=+document.getElementById('cfPro').value||0,carb=+document.getElementById('cfCarb').value||0,fat=+document.getElementById('cfFat').value||0,em=document.getElementById('cfEmoji').value.trim()||emoji(name);
+  const food={id:'c'+Date.now(),name,emoji:em,units:[{label:unitLabel,g:grams},...(grams!==100?[{label:'100g',g:100}]:[])],p100:{pro,carb,fat,cal},isCustom:true};
+  const customs=getCustomFoods();customs.push(food);saveCustomFoods(customs);
+  toast('Saved "'+name+'" to library!');
+  ['cfName','cfGrams','cfCal','cfPro','cfCarb','cfFat','cfEmoji'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('cfUnitType').value='g';document.getElementById('cfCustomLabelRow').style.display='none';
+  renderLibList();
+  switchTab('search');document.getElementById('searchIn').value=name;doSearch(name);
+}
+
+function renderLibList(){
+  const customs=getCustomFoods();
+  const el=document.getElementById('libList');
+  if(!customs.length){el.innerHTML='<div class="lib-empty">No custom foods yet.</div>';return;}
+  el.innerHTML=customs.map(f=>`
+    <div class="lib-item">
+      <span style="font-size:18px">${f.emoji||'🥗'}</span>
+      <span class="lib-name">${f.name}</span>
+      <span style="font-size:11px;color:var(--text3);flex-shrink:0">${Math.round(f.p100.pro)}g P/100g</span>
+      <button class="lib-del" onclick="deleteCustomFood('${f.id}')" title="Delete">🗑</button>
+    </div>`).join('');
+}
+
+function deleteCustomFood(id){
+  if(!confirm('Remove this food from your custom library?')) return;
+  const customs=getCustomFoods().filter(f=>f.id!==id);
+  saveCustomFoods(customs);
+  renderLibList();
+  toast('Deleted from library');
+}
+
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);}
 loadGoals();renderAll();
 </script>
