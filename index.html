@@ -24,7 +24,6 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
 .app{max-width:430px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;}
-
 .header{background:rgba(247,247,245,0.96);backdrop-filter:blur(16px);padding:calc(var(--safe-top)+14px) 18px 0;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;flex-shrink:0;}
 .header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
 .app-name{font-size:20px;font-weight:600;letter-spacing:-0.4px;}
@@ -35,15 +34,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .nav-tabs{display:flex;}
 .nav-tab{flex:1;background:none;border:none;cursor:pointer;padding:10px 0 11px;font-size:13px;font-weight:500;color:var(--text3);font-family:'DM Sans',sans-serif;border-bottom:2px solid transparent;transition:all 0.15s;}
 .nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
-
 .page{display:none;flex:1;padding:14px 14px calc(110px + var(--safe-bottom));flex-direction:column;gap:14px;overflow-y:auto;}
 .page.active{display:flex;}
-
 .card{background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);padding:18px;box-shadow:var(--shadow);}
 .card-title{font-size:14px;font-weight:600;margin-bottom:14px;}
 .card-subtitle{font-size:11px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;}
-
-/* summary */
 .summary-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px;}
 .cal-big{font-size:38px;font-weight:300;letter-spacing:-1.5px;line-height:1;}
 .cal-big sub{font-size:14px;font-weight:400;color:var(--text3);vertical-align:baseline;letter-spacing:0;margin-left:2px;}
@@ -60,8 +55,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .bar{height:4px;background:var(--surface2);border-radius:99px;overflow:hidden;}
 .bar-fill{height:100%;border-radius:99px;transition:width 0.5s ease;}
 .bp{background:var(--accent);}.bc{background:var(--blue);}.bf{background:var(--yellow);}
-
-/* log */
 .sec-head{display:flex;justify-content:space-between;align-items:center;padding:0 2px;margin-bottom:10px;}
 .sec-title{font-size:15px;font-weight:600;}
 .sec-sub{font-size:12px;color:var(--text3);}
@@ -82,14 +75,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .empty-icon{font-size:32px;margin-bottom:10px;}
 .empty-t{font-size:14px;font-weight:500;color:var(--text2);}
 .empty-s{font-size:12px;color:var(--text3);margin-top:3px;}
-
-/* goals */
 .goals-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;}
 .g-wrap label{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;display:block;margin-bottom:4px;}
 .g-wrap input{width:100%;background:var(--surface2);border:1.5px solid var(--border);border-radius:8px;padding:9px 11px;font-size:15px;font-weight:500;color:var(--text);font-family:'DM Sans',sans-serif;outline:none;}
 .g-wrap input:focus{border-color:var(--accent);background:white;}
-
-/* analytics */
 .analytics-period{display:flex;gap:6px;margin-bottom:14px;}
 .period-btn{background:var(--surface2);border:none;border-radius:20px;padding:6px 14px;font-size:12px;font-weight:500;color:var(--text2);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;}
 .period-btn.active{background:var(--accent);color:white;}
@@ -112,12 +101,8 @@ canvas{display:block;}
 .wd-bar{width:100%;border-radius:3px 3px 0 0;min-height:3px;}
 .wd-val{font-size:9px;color:var(--text2);margin-top:3px;font-family:'DM Mono',monospace;}
 #monthHeatmap{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:4px;}
-
-/* fab */
 .fab{position:fixed;bottom:calc(20px + var(--safe-bottom));left:50%;transform:translateX(-50%);background:var(--accent);color:white;border:none;border-radius:99px;padding:14px 28px;font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 4px 18px rgba(45,106,79,0.32);transition:transform 0.12s;z-index:50;white-space:nowrap;}
 .fab:active{transform:translateX(-50%) scale(0.96);}
-
-/* modal */
 .overlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.38);backdrop-filter:blur(3px);display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.2s;}
 .overlay.open{opacity:1;pointer-events:all;}
 .sheet{background:var(--surface);border-radius:22px 22px 0 0;width:100%;max-width:430px;max-height:90vh;display:flex;flex-direction:column;transform:translateY(100%);transition:transform 0.28s cubic-bezier(0.34,1.2,0.64,1);}
@@ -170,15 +155,11 @@ canvas{display:block;}
 .cf-row input:focus,.cf-row select:focus{border-color:var(--accent);background:white;}
 .cf-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;}
 .cf-note{font-size:11px;color:var(--text3);margin-bottom:14px;line-height:1.5;}
-
-/* Admin share toggle */
 .share-toggle{display:flex;align-items:center;gap:10px;background:var(--yellow-light);border-radius:10px;padding:11px 14px;margin-bottom:14px;cursor:pointer;border:1.5px solid #f0d080;}
 .share-toggle input[type=checkbox]{width:18px;height:18px;cursor:pointer;accent-color:var(--yellow);flex-shrink:0;}
 .share-toggle-text{flex:1;}
 .share-toggle-label{font-size:13px;font-weight:600;color:#7a5010;}
 .share-toggle-sub{font-size:11px;color:#b5832a;margin-top:1px;}
-
-/* Admin password prompt overlay */
 .pwd-overlay{position:fixed;inset:0;z-index:400;background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.2s;}
 .pwd-overlay.open{opacity:1;pointer-events:all;}
 .pwd-box{background:var(--surface);border-radius:var(--radius);padding:24px;width:90%;max-width:320px;box-shadow:0 20px 60px rgba(0,0,0,0.2);}
@@ -191,7 +172,6 @@ canvas{display:block;}
 .pwd-btn{flex:1;padding:11px;border:none;border-radius:10px;font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;}
 .pwd-cancel{background:var(--surface2);color:var(--text2);}
 .pwd-confirm{background:var(--accent);color:white;}
-
 .save-custom-btn{width:100%;background:var(--accent);color:white;border:none;border-radius:10px;padding:13px;font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;margin-bottom:6px;}
 .save-custom-btn:active{opacity:0.85;}
 .divider{height:1px;background:var(--border);margin:4px 14px 12px;}
@@ -201,12 +181,10 @@ canvas{display:block;}
 .lib-name{flex:1;font-size:13px;font-weight:500;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .lib-del{background:none;border:none;cursor:pointer;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#c0a0a0;font-size:13px;flex-shrink:0;}
 .lib-del:active{background:#fee2e2;color:#ef4444;}
-
 .fb-status{font-size:11px;padding:3px 9px;border-radius:99px;display:inline-flex;align-items:center;gap:4px;}
 .fb-ok{background:var(--accent-light);color:var(--accent);}
 .fb-err{background:var(--red-light);color:var(--red);}
 .fb-loading{background:var(--surface2);color:var(--text3);}
-
 .toast{position:fixed;bottom:calc(84px + var(--safe-bottom));left:50%;transform:translateX(-50%) translateY(10px);background:var(--text);color:white;padding:9px 16px;border-radius:99px;font-size:13px;font-weight:500;opacity:0;pointer-events:none;transition:all 0.18s;z-index:500;white-space:nowrap;}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 </style>
@@ -218,10 +196,10 @@ canvas{display:block;}
   <div class="pwd-box">
     <div class="pwd-title">🔐 Admin Access</div>
     <div class="pwd-sub">Enter the admin password to share this food with all users.</div>
-    <input class="pwd-input" type="password" id="pwdInput" placeholder="Password" onkeydown="if(event.key==='Enter')confirmPwd()">
+    <input class="pwd-input" type="password" id="pwdInput" placeholder="Password">
     <div class="pwd-btns">
-      <button class="pwd-btn pwd-cancel" onclick="cancelPwd()">Cancel</button>
-      <button class="pwd-btn pwd-confirm" onclick="confirmPwd()">Confirm</button>
+      <button class="pwd-btn pwd-cancel" id="pwdCancelBtn">Cancel</button>
+      <button class="pwd-btn pwd-confirm" id="pwdConfirmBtn">Confirm</button>
     </div>
   </div>
 </div>
@@ -353,8 +331,6 @@ canvas{display:block;}
       <button class="tab active" id="tabSearch" onclick="switchTab('search')">Search</button>
       <button class="tab" id="tabCustom" onclick="switchTab('custom')">+ Custom</button>
     </div>
-
-    <!-- SEARCH TAB -->
     <div id="searchTab" style="display:flex;flex-direction:column;flex:1;overflow:hidden;">
       <div class="search-box">
         <div class="s-row">
@@ -375,11 +351,9 @@ canvas{display:block;}
         <div class="back-link" onclick="backToSearch()">← Back</div>
       </div>
     </div>
-
-    <!-- CUSTOM TAB -->
     <div id="customTab" style="display:none;flex-direction:column;flex:1;overflow:hidden;">
       <div class="custom-form">
-        <div class="cf-note">Add a food not in the database. It's saved to your personal library.</div>
+        <div class="cf-note">Add a food not in the database. Saved to your personal library.</div>
         <div class="cf-row"><label>Food Name *</label><input type="text" id="cfName" placeholder="e.g. My Protein Bar"></div>
         <div class="cf-row"><label>Unit *</label>
           <select id="cfUnitType" onchange="toggleCustomUnit()">
@@ -400,8 +374,6 @@ canvas{display:block;}
           <div class="cf-row"><label>Fat (g)</label><input type="number" id="cfFat" placeholder="0" min="0"></div>
         </div>
         <div class="cf-row"><label>Emoji</label><input type="text" id="cfEmoji" placeholder="🥗" maxlength="2" style="width:60px"></div>
-
-        <!-- Admin-only share toggle -->
         <div class="share-toggle" onclick="document.getElementById('cfShared').click()">
           <input type="checkbox" id="cfShared" onclick="event.stopPropagation()">
           <div class="share-toggle-text">
@@ -409,7 +381,6 @@ canvas{display:block;}
             <div class="share-toggle-sub">All users will see this food. Requires admin password.</div>
           </div>
         </div>
-
         <button class="save-custom-btn" onclick="saveCustomFood()">Save to Library</button>
       </div>
       <div class="divider"></div>
@@ -423,10 +394,18 @@ canvas{display:block;}
 
 <script type="module">
 // ════════════════════════════════════════
-//  ⚙️  ADMIN PASSWORD — change this before uploading to GitHub
+// ⚙️  Paste your SHA-256 hash here.
+//     Generate it using the hash tool Claude built.
+//     Never put your real password here.
 // ════════════════════════════════════════
-const ADMIN_HASH = '6d3e9395259fef2e76ae9663dc1a2a7618c073448134e9f7512f852abf37f86a';
-  
+const ADMIN_HASH = 'PASTE_YOUR_HASH_HERE';
+
+// ── SHA-256 helper — defined first so everything below can use it ──
+async function sha256(str) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
 // ── FIREBASE ──
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
 import { getDatabase, ref, set, remove, onValue } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';
@@ -493,12 +472,10 @@ const LOCAL = [
   {id:'l25',name:'Moong Dal (cooked)',emoji:'🍲',units:[{label:'g',g:1},{label:'100g',g:100},{label:'bowl 200g',g:200}],p100:{pro:7,carb:19,fat:0.4,cal:105}},
 ];
 
-// ── STATE ──
 const USDA_KEY = 'RcUT9GFSlNR7c62pcfBiekNqs6HUb9FwYOQiBvhm';
 let curDate = todayStr(), goals = {cal:2000,pro:150,carb:250,fat:65};
 let selFood = null, srTimer = null, usdaCache = {}, _results = [];
 let currentPeriod = 'week';
-let pendingSaveFood = null; // food waiting for password confirmation
 
 // ── STORAGE ──
 function todayStr(){ return new Date().toISOString().split('T')[0]; }
@@ -545,7 +522,6 @@ function fmtDate(s){
   if(s===y.toISOString().split('T')[0]) return 'Yesterday';
   return new Date(s+'T12:00:00').toLocaleDateString('en-IN',{day:'numeric',month:'short'});
 }
-
 function emojiFor(n){ n=n.toLowerCase();
   if(n.includes('chicken')) return '🍗'; if(n.includes('egg')) return '🥚';
   if(n.includes('bread')||n.includes('roti')||n.includes('chapati')) return '🍞';
@@ -562,10 +538,7 @@ function emojiFor(n){ n=n.toLowerCase();
 }
 
 // ── RENDER ──
-function renderAll(){
-  document.getElementById('dateLabel').textContent = fmtDate(curDate);
-  renderSummary(); renderLog();
-}
+function renderAll(){ document.getElementById('dateLabel').textContent = fmtDate(curDate); renderSummary(); renderLog(); }
 function renderSummary(){
   const e=getLog(curDate); let tc=0,tp=0,tca=0,tf=0;
   e.forEach(x=>{tc+=x.cal;tp+=x.pro;tca+=x.carb;tf+=x.fat;});
@@ -601,37 +574,42 @@ window.showPage = function(name){
   if(name==='goals') loadGoals();
 };
 
-// ── ADMIN PASSWORD LOGIC ──
+// ── ADMIN PASSWORD — uses Promise + button listeners (no inline async) ──
 let pwdResolve = null;
 
 function promptAdminPassword(){
   return new Promise(resolve => {
     pwdResolve = resolve;
-    const el = document.getElementById('pwdInput');
-    el.value = ''; el.classList.remove('error');
+    const inp = document.getElementById('pwdInput');
+    inp.value = ''; inp.classList.remove('error'); inp.placeholder = 'Password';
     document.getElementById('pwdOverlay').classList.add('open');
-    setTimeout(()=>el.focus(), 200);
+    setTimeout(() => inp.focus(), 200);
   });
 }
 
-window.confirmPwd = function(){
+// Wire up buttons via addEventListener so async works properly
+document.getElementById('pwdConfirmBtn').addEventListener('click', async () => {
   const val = document.getElementById('pwdInput').value;
-  const hashTyped = await sha256(val);
-  if(hashTyped === ADMIN_HASH){
+  const hashed = await sha256(val);
+  if (hashed === ADMIN_HASH) {
     document.getElementById('pwdOverlay').classList.remove('open');
-    if(pwdResolve) pwdResolve(true);
+    if (pwdResolve) { pwdResolve(true); pwdResolve = null; }
   } else {
-    const el = document.getElementById('pwdInput');
-    el.classList.add('error'); el.value = '';
-    el.placeholder = 'Wrong password, try again';
-    setTimeout(()=>{ el.classList.remove('error'); el.placeholder='Password'; }, 1500);
+    const inp = document.getElementById('pwdInput');
+    inp.classList.add('error'); inp.value = ''; inp.placeholder = 'Wrong password, try again';
+    setTimeout(() => { inp.classList.remove('error'); inp.placeholder = 'Password'; }, 1500);
   }
-};
+});
 
-window.cancelPwd = function(){
+document.getElementById('pwdCancelBtn').addEventListener('click', () => {
   document.getElementById('pwdOverlay').classList.remove('open');
-  if(pwdResolve) pwdResolve(false);
-};
+  if (pwdResolve) { pwdResolve(false); pwdResolve = null; }
+});
+
+// Enter key in password field
+document.getElementById('pwdInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') document.getElementById('pwdConfirmBtn').click();
+});
 
 // ── ANALYTICS ──
 function getDatesBack(n){
@@ -655,8 +633,6 @@ function renderAnalytics(){
   const dates = getDatesBack(days);
   const data = dates.map(d=>({date:d, totals:getTotals(d), goals:getGoalsFor(d)||goals}));
   const wd = data.filter(d=>d.totals);
-
-  // Stats
   if(wd.length){
     const avgCal=wd.reduce((s,d)=>s+d.totals.cal,0)/wd.length;
     const avgPro=wd.reduce((s,d)=>s+d.totals.pro,0)/wd.length;
@@ -695,17 +671,14 @@ function drawChart(id, data, key, color){
     ctx.fillStyle='#a8a8a0';ctx.font='9px monospace';ctx.textAlign='right';
     ctx.fillText(Math.round(maxV*f),pad.l-3,y+3);
   });
-  // goal dashed
   ctx.setLineDash([4,3]);ctx.strokeStyle=color+'66';ctx.lineWidth=1.5;
   ctx.beginPath();
   gVals.forEach((g,i)=>{ const x=pad.l+i*step,y=pad.t+cH*(1-g/maxV); i===0?ctx.moveTo(x,y):ctx.lineTo(x,y); });
   ctx.stroke();ctx.setLineDash([]);
-  // fill
   const pts=vals.map((v,i)=>v!==null?{x:pad.l+i*step,y:pad.t+cH*(1-v/maxV)}:null);
   const validPts=pts.filter(p=>p);
   if(validPts.length>1){
-    ctx.beginPath();
-    let s=false;
+    ctx.beginPath(); let s=false;
     pts.forEach(p=>{ if(!p)return; if(!s){ctx.moveTo(p.x,p.y);s=true;}else ctx.lineTo(p.x,p.y); });
     const last=validPts[validPts.length-1], first=validPts[0];
     ctx.lineTo(last.x,pad.t+cH);ctx.lineTo(first.x,pad.t+cH);ctx.closePath();
@@ -721,9 +694,8 @@ function drawChart(id, data, key, color){
   const every=data.length<=7?1:data.length<=30?5:15;
   data.forEach((d,i)=>{
     if(i%every!==0&&i!==data.length-1)return;
-    const x=pad.l+i*step;
     ctx.fillStyle='#a8a8a0';ctx.font='9px sans-serif';ctx.textAlign='center';
-    ctx.fillText(new Date(d.date+'T12:00:00').toLocaleDateString('en-IN',{day:'numeric',month:'short'}),x,128);
+    ctx.fillText(new Date(d.date+'T12:00:00').toLocaleDateString('en-IN',{day:'numeric',month:'short'}),pad.l+i*step,128);
   });
 }
 function renderWeekSummary(data){
@@ -749,7 +721,7 @@ function renderHeatmap(){
     const t=getTotals(d), g=getGoalsFor(d)||goals;
     const pct=t?t.pro/g.pro:null;
     const color=pct===null?'#d8d8d4':pct>=0.9?'#2d6a4f':pct>=0.5?'#d4a017':'#f0f0ee';
-    return`<div title="${d}${t?': '+Math.round(t.pro)+'g protein':': no data'}" style="aspect-ratio:1;background:${color};border-radius:4px;cursor:default"></div>`;
+    return`<div title="${d}${t?': '+Math.round(t.pro)+'g protein':': no data'}" style="aspect-ratio:1;background:${color};border-radius:4px;"></div>`;
   }).join('');
 }
 
@@ -757,7 +729,6 @@ function renderHeatmap(){
 window.openModal=function(){ document.getElementById('overlay').classList.add('open'); resetToSearch(); setTimeout(()=>document.getElementById('searchIn').focus(),300); };
 window.closeModal=function(){ document.getElementById('overlay').classList.remove('open'); };
 window.overlayClick=function(e){ if(e.target===document.getElementById('overlay')) window.closeModal(); };
-
 function resetToSearch(){
   selFood=null;_results=[];
   document.getElementById('addPanel').style.display='none';
@@ -767,7 +738,6 @@ function resetToSearch(){
   document.getElementById('spin').style.display='none';
   switchTab('search');
 }
-
 window.switchTab=function(tab){
   const s=tab==='search';
   document.getElementById('tabSearch').classList.toggle('active',s);
@@ -777,20 +747,17 @@ window.switchTab=function(tab){
   if(!s) renderLibList();
   if(s) setTimeout(()=>document.getElementById('searchIn').focus(),100);
 };
-
 document.getElementById('searchIn').addEventListener('input',function(){
   clearTimeout(srTimer); const q=this.value.trim();
   if(q.length<2){ document.getElementById('results').innerHTML=''; return; }
   srTimer=setTimeout(()=>doSearch(q),280);
 });
-
 function localSearch(q){
   const all=[...getCustomFoods().map(f=>({...f,isCustom:true})), ...sharedFoods, ...LOCAL];
   const seen=new Set(), deduped=[];
   all.forEach(f=>{ if(!seen.has(f.name.toLowerCase())){seen.add(f.name.toLowerCase());deduped.push(f);} });
   return deduped.filter(f=>f.name.toLowerCase().includes(q.toLowerCase())).slice(0,6);
 }
-
 async function usdaSearch(q){
   if(usdaCache[q]) return usdaCache[q];
   const r=await fetch(`https://api.nal.usda.gov/fdc/v1/foods/search?query=${encodeURIComponent(q)}&pageSize=8&dataType=Foundation,SR%20Legacy&api_key=${USDA_KEY}`);
@@ -801,7 +768,6 @@ async function usdaSearch(q){
   });
   usdaCache[q]=res; return res;
 }
-
 async function doSearch(q){
   const sp=document.getElementById('spin'),rl=document.getElementById('results');
   sp.style.display='block';
@@ -826,7 +792,6 @@ async function doSearch(q){
       ${f.isShared&&f.firebaseKey?`<button class="r-del" onclick="window.delSharedSearch('${f.firebaseKey}',event)">🗑</button>`:''}
     </div>`).join('');
 }
-
 window.selectFood=function(i){
   selFood=_results[i];
   document.getElementById('selName').textContent=selFood.name;
@@ -854,7 +819,6 @@ window.confirmAdd=function(){
   renderAll(); toast('Added '+selFood.name);
   resetToSearch(); setTimeout(()=>document.getElementById('searchIn').focus(),100);
 };
-
 window.delCustomSearch=function(id,e){
   e.stopPropagation();
   if(!confirm('Remove from your library?')) return;
@@ -863,11 +827,10 @@ window.delCustomSearch=function(id,e){
   if(q.length>=2) doSearch(q); else document.getElementById('results').innerHTML='';
   toast('Deleted');
 };
-
 window.delSharedSearch=async function(key,e){
   e.stopPropagation();
   const ok = await promptAdminPassword();
-  if(!ok){ toast('Wrong password'); return; }
+  if(!ok) return;
   await removeSharedFood(key);
   const q=document.getElementById('searchIn').value.trim();
   if(q.length>=2) doSearch(q);
@@ -876,7 +839,6 @@ window.delSharedSearch=async function(key,e){
 
 // ── CUSTOM FOOD ──
 window.toggleCustomUnit=function(){ document.getElementById('cfCustomLabelRow').style.display=document.getElementById('cfUnitType').value==='custom'?'block':'none'; };
-
 window.saveCustomFood=async function(){
   const name=document.getElementById('cfName').value.trim();
   if(!name){ toast('Enter a food name'); return; }
@@ -888,28 +850,19 @@ window.saveCustomFood=async function(){
   const carb=+document.getElementById('cfCarb').value||0, fat=+document.getElementById('cfFat').value||0;
   const em=document.getElementById('cfEmoji').value.trim()||emojiFor(name);
   const wantsShare=document.getElementById('cfShared').checked;
-
   const food={id:'c'+Date.now(),name,emoji:em,units:[{label:unitLabel,g:grams},...(grams!==100?[{label:'100g',g:100}]:[])],p100:{pro,carb,fat,cal}};
-
-  // Save to personal library always
   const customs=getCustomFoods(); customs.push({...food,isCustom:true}); saveCustomFoods(customs);
-
-  // If wants to share, require admin password
   if(wantsShare && db){
     const ok = await promptAdminPassword();
     if(ok){
-      try{
-        await pushSharedFood({...food, addedBy:'admin'});
-        toast('✅ Shared "'+name+'" with all users!');
-      }catch(err){ toast('Saved locally (Firebase error)'); }
+      try{ await pushSharedFood({...food,addedBy:'admin'}); toast('✅ Shared "'+name+'" with all users!'); }
+      catch(err){ toast('Saved locally (Firebase error)'); }
     } else {
-      toast('Saved to your library only (wrong password)');
+      toast('Saved to your library only');
     }
   } else {
     toast('Saved "'+name+'" to your library');
   }
-
-  // Reset form
   ['cfName','cfGrams','cfCal','cfPro','cfCarb','cfFat','cfEmoji'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('cfUnitType').value='g';
   document.getElementById('cfCustomLabelRow').style.display='none';
@@ -919,7 +872,6 @@ window.saveCustomFood=async function(){
   document.getElementById('searchIn').value=name;
   doSearch(name);
 };
-
 function renderLibList(){
   const c=getCustomFoods();
   document.getElementById('libList').innerHTML=!c.length
@@ -927,13 +879,7 @@ function renderLibList(){
     :c.map(f=>`<div class="lib-item"><span style="font-size:18px">${f.emoji||'🥗'}</span><span class="lib-name">${f.name}</span><span style="font-size:11px;color:var(--text3);flex-shrink:0">${Math.round(f.p100.pro)}g P</span><button class="lib-del" onclick="window.delCustomFood('${f.id}')">🗑</button></div>`).join('');
 }
 window.delCustomFood=function(id){ if(!confirm('Remove from library?')) return; saveCustomFoods(getCustomFoods().filter(f=>f.id!==id)); renderLibList(); toast('Deleted'); };
-
 function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2400); }
-
-async function sha256(str){
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
-}
 
 // ── INIT ──
 loadGoals();
